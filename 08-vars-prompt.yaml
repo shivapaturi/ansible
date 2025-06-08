@@ -5,11 +5,11 @@
   vars_prompt:
     - name: USERNAME
       prompt: please enter your username
-      private: true
+      private: false
 
     - name: PASSWORD
       prompt: please enter your password
-      private: true
+      private: false
       
   tasks:
     - name: printing user information
