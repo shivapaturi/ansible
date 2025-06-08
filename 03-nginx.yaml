@@ -1,13 +1,14 @@
 - name: nginx to install and run
   hosts: frontend
+  become: yes  # Needed for package installation and service management
   tasks:
-  - name: install nginx server
-    ansible.builtin.package:
+    - name: install nginx server
+      ansible.builtin.package:
         name: nginx
         state: present
 
-  - name: start nginx
-    ansible.builtin.service:
-    name: nginx
-    state: started
-    enabled: yes
+    - name: start nginx
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: yes
