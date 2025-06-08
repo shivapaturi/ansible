@@ -1,5 +1,5 @@
 - name: play level variables
-  hosts: local
+  hosts: localhost
   connection: local
   vars:
     COURSE: Ansible # Equal to COURSE=Ansible in shell, shell we refer $VAR or ${VAR}
