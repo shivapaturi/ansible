@@ -2,19 +2,19 @@
   hosts: local
   connection: local
   vars:
-    GREETINGS: "Hello from play"
+    GREETING: "Hello from PLAY"
   vars_files:
   - course.yaml
   vars_prompt:
-  - name: GREETINGS
-    prompt: Please enter the greetings
+  - name: GREETING
+    prompt: Please enter the greeting
     private: false
   tasks:
-  - name: print the greetings
-    # vars:
-    #   GREETINGS: "Hello from TASKS"
+  - name: print the greeting
+    vars:
+      GREETING: "Hello from TASK"
     ansible.builtin.debug:
-      msg: "{{ GREETINGS }}}"
+      msg: "{{ GREETING }}"
 
 # 1. command line or args
 # 2. Task
