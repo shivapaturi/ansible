@@ -13,8 +13,8 @@
   - name: print the greetings
     # vars:
     #   GREETINGS: "Hello from TASKS"
-    # ansible.builtin.debug:
-    #   msg: "{{ GREETINGS }}}"
+    ansible.builtin.debug:
+      msg: "{{ GREETINGS }}}"
 
 # 1. command line or args
 # 2. Task
