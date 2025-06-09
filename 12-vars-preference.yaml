@@ -1,5 +1,5 @@
 - name: understand vars preference
-  hosts: localhost
+  hosts: local
   connection: local
   # vars:
   #   GREETING: "Hello from PLAY"
