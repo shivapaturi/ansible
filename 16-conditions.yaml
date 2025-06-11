@@ -1,5 +1,6 @@
 - name: Install Nginx on RedHat and Debian Systems
-  hosts: all
+  hosts: local
+  connections: local
   become: true
   tasks:
 
