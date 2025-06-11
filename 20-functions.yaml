@@ -1,8 +1,7 @@
-- name: Greet Person Function Example
+- name: variable for inventory
   hosts: localhost
   connection: local
- 
   tasks:
-    - name: call person details
+    - name: print course information
       ansible.builtin.debug:
-        "Hello I'm learning {{ COURSE }}, course duration: {{ DURATION }}, trainer is {{ TRAINER }}"
+        msg: "Hello I'm learning {{ COURSE }}, course duration: {{ DURATION }}, trainer is {{ TRAINER }}"
