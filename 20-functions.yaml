@@ -46,4 +46,4 @@
       vars:
         IP: 356:456:545:535
       ansible.builtin.debug:
-        msg: "is this valid, {{ IP | ansible.utils.ipaddr }}"
+        msg: "{{ IP | ansible.utils.ipaddr }}"
