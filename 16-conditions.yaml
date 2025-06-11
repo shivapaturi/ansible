@@ -19,6 +19,6 @@
       ansible.builtin.systemd:
         name: nginx
         service: started
-        enable: yes
+        enabled: yes
 
   
