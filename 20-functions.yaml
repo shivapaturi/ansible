@@ -1,7 +1,9 @@
 - name: funtions
   hosts: local
   connection: local
+  vars:
+    person: "Shiva"
   tasks:
-    - name: "{{ item }}"
+    - name: call person
       ansible.builtin.debug:
         msg: "Hello, {{ Person }}"
