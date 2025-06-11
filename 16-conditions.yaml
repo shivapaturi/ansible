@@ -15,8 +15,8 @@
         state: present
       when: ansible_facts['os_family'] == "Debian"
 
-    - name: start and enable Nginx service
-      ansible.builtin.service:
+    - name: start and enable Nginx with systemd
+      ansible.builtin.systemd:
         name: nginx
         service: started
         enable: yes
