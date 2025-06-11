@@ -26,6 +26,6 @@
         course: 
           {'key': 'name', 'value': 'Ansible'}
           {'key': 'duration', 'value': '10 hrs'}
-          {'key': 'trainer', 'value': 'siva kumar'}]"
+          {'key': 'trainer', 'value': 'siva kumar'}
       ansible.builtin.debug:
         msg: "Couse info: {{ course | items2dict }}"
