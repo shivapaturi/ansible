@@ -1,0 +1,7 @@
+- name: funtions
+  hosts: local
+  connection: local
+  tasks:
+    - name: check undefined variables
+      ansible.builtin.debug:
+        msg: "Hello, {{ Person }}"
