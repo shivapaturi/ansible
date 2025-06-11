@@ -1,11 +1,11 @@
-- name: funtions
-  hosts: local
+- name: Greet Person Function Example
+  hosts: localhost
   connection: local
   gather_facts: false
 
   vars:
-    person: "Shiva"
-    
+    Person: "Shiva"
+
   tasks:
     - name: call person
       ansible.builtin.debug:
