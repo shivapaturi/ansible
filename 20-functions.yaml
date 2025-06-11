@@ -12,3 +12,11 @@
       ansible.builtin.debug:
         msg: "Hello, {{ PERSONS | split(',') }}"
 
+    - name: convert map in to list
+      course: 
+        name: Ansible
+        duration: 10 hrs
+        trainer: siva kumar
+      ansible.builtin.debian:
+        msg: "Couse info: {{ course | dict2items }}"
+
