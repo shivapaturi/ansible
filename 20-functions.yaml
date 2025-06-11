@@ -30,7 +30,6 @@
       ansible.builtin.debug:
         msg: "Couse info: {{ course | items2dict }}"
 
-
     - name: Convert name to uppercase
       vars:
         name: "shiva kumar"
@@ -42,3 +41,9 @@
         name: "Shiva Kumar"
       ansible.builtin.debug:
         msg: "Hello {{ name | lower }}"
+
+    - name: check IP address is correct or not
+      vars:
+        IP: 356:456:545:535
+      ansible.builtin.debug:
+        msg: "is this valid, {{ IP | ansible.utils.ipaddr }}"
