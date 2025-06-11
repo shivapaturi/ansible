@@ -6,7 +6,15 @@
       #ansible.builtin.command: "ls -ltr > /tmp/output.txt"
 
       #ansible.builtin.command does not use a shell, so operators like >, |, && don't work. These are shell features, and command runs the command directly, bypassing the shell.
+      register: command_result
+    - name: print the outcome
+      ansible.builtin.debug:
+        msg: "{{ command_result }}"
+
+    - name: redirect ls output to a file using command
+      ansible.builtin.command: "ls -ltr"
+      #ansible.builtin.shell: "ls -ltr > /tmp/output.txt"
       register: command_output 
     - name: print the outcome
       ansible.builtin.debug:
-        msg: "{{ command_output }}"
+        msg: "{{ command_output }}  
