@@ -10,3 +10,4 @@
         - { name: 'nginx', state: 'present' }
         - { name: 'mysql', state: 'absent' }
         - { name: 'python3', state: 'absent' }
+      when: item.name != 'python3'
