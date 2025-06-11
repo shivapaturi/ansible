@@ -1,12 +1,8 @@
 - name: Greet Person Function Example
   hosts: localhost
   connection: local
-  gather_facts: false
-
-  vars:
-    Person: "Shiva"
-
+ 
   tasks:
-    - name: call person
+    - name: call person details
       ansible.builtin.debug:
-        msg: "Hello, {{ Person }}"
+        "Hello I'm learning {{ COURSE }}, course duration: {{ DURATION }}, trainer is {{ TRAINER }}"
