@@ -12,12 +12,20 @@
       ansible.builtin.debug:
         msg: "Hello, {{ PERSONS | split(',') }}"
 
-    - name: convert map in to list
+    # - name: convert map in to list
+    #   vars:
+    #     course: 
+    #       name: Ansible
+    #       duration: 10 hrs
+    #       trainer: siva kumar
+    #   ansible.builtin.debug:
+    #     msg: "Couse info: {{ course | dict2items }}"
+
+    - name: convert list in to map
       vars:
         course: 
-          name: Ansible
-          duration: 10 hrs
-          trainer: siva kumar
+          {'key': 'name', 'value': 'Ansible'}
+          {'key': 'duration', 'value': '10 hrs'}
+          {'key': 'trainer', 'value': 'siva kumar'}]"
       ansible.builtin.debug:
-        msg: "Couse info: {{ course | dict2items }}"
-
+        msg: "Couse info: {{ course | items2dict }}"
