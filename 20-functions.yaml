@@ -1,8 +1,11 @@
 - name: funtions
   hosts: local
   connection: local
+  gather_facts: false
+
   vars:
     person: "Shiva"
+    
   tasks:
     - name: call person
       ansible.builtin.debug:
