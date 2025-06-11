@@ -17,6 +17,6 @@
         name: Ansible
         duration: 10 hrs
         trainer: siva kumar
-      ansible.builtin.debian:
+      ansible.builtin.debug:
         msg: "Couse info: {{ course | dict2items }}"
 
