@@ -9,6 +9,6 @@
         msg: "Hello, {{ Person | default('Shiva') }}"
 
     - name: print names
-      ansible.builtin.debug
-        msg; "Hello, {{ PERSONS }}"
+      ansible.builtin.debug:
+        msg: "Hello, {{ PERSONS }}"
 
