@@ -1,25 +1,22 @@
-- name: Playbook control using ansible facts
+- name: playbook control using ansible facts
   hosts: local
-  connections: local
+  connection: local
   become: yes
   tasks:
-    - name: Install nginx if debian
-      Ansible.builtin.dnf:
-      name: nginx
-      state: present
-      when: ansible_facts['os_family'] == "RedHat"
+    - name: Install nginx if redhat
+      ansible.builtin.dnf:
+        name: nginx
+        state: present
+      when: ansible_facts['os_family'] == "RedHat" 
 
     - name: Install nginx if debian
       ansible.builtin.apt:
-      name: nginx
-      state: present
+        name: nginx
+        state: present
       when: ansible_facts['os_family'] == "Debian"
 
-    - name: nginx start and enable Nginx
+    - name: Start and enable Nginx
       ansible.builtin.systemd:
         name: nginx
         state: started
         enabled: yes
-
-
-  
