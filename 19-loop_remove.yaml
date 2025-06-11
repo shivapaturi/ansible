@@ -1,0 +1,14 @@
+- name: Install packages
+  hosts: frontend
+  become: yes
+  tasks:
+    - name: Install packages
+      ansible.builtin.package:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - { name: 'nginx' , state: 'present' }
+        - { name: 'mysql' , state: 'absent' }
+        - { name: 'zip' , state: 'absent' }
+      when: ansible_facts['os_family'] == "Redhat" 
+
