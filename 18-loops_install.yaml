@@ -8,6 +8,6 @@
         state: present
       loop:
       - nginx
-      - python3
+      - zip
       - mysql
       when: ansible_facts['os_family'] == "RedHat"  
