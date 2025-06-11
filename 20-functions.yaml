@@ -2,6 +2,6 @@
   hosts: local
   connection: local
   tasks:
-    - name: "{{ Person }}"
+    - name: "{{ item }}"
       ansible.builtin.debug:
         msg: "Hello, {{ Person }}"
