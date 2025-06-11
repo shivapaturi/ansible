@@ -1,4 +1,4 @@
-- name: playbook control using ansible facts
+- name: Playbook control using ansible facts
   hosts: local
   connections: local
   become: yes
@@ -9,7 +9,7 @@
       state: present
       when: ansible_facts['os_family'] == "RedHat"
 
-    - name: ifnstall nginx if debian
+    - name: Install nginx if debian
       ansible.builtin.apt:
       name: nginx
       state: present
