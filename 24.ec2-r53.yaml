@@ -27,8 +27,3 @@
           Name: "{{ item }}"
       loop: "{{ instances }}"
       register: ec2_output
-
-    # Optional: Debug output
-    - name: Show created EC2 instance details
-      debug:
-        var: ec2_output
