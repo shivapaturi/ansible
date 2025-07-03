@@ -1,21 +1,34 @@
-- name: create ec2 and r53 records
-  hosts: local
-  connections: local
+- name: Create EC2 instances and Route 53 records
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
   vars:
     instances:
-    - mysql
-    - backend
-    - frontend
+      - mysql
+      - backend
+      - frontend
     subnet_id: subnet-0bc7656219c9a896d
     sg_id: sg-010eb25d82d15b248
+    image_id: ami-09c813fb71547fc4f
+    instance_type: t3.micro
+   
   tasks:
-  - name: create ec2
-    amazon.aws.ec2_instance:
-      name:  "{{ item }}"
-      vpc_subnet_id: "{{ subnet_id }}"
-      instance_type: t3.micro
-      security_group: "{{ sg_id }}"
-      image_id: ami-09c813fb71547fc4f
-      tags:
-        Name: "{{ item }}"
-    loop: "{{ instances }}"
+    - name: Create EC2 instances
+      amazon.aws.ec2_instance:
+        name: "{{ item }}"
+        vpc_subnet_id: "{{ subnet_id }}"
+        instance_type: "{{ instance_type }}"
+        security_groups: 
+          - "{{ sg_id }}"
+        image_id: "{{ image_id }}"
+        wait: true
+        tags:
+          Name: "{{ item }}"
+      loop: "{{ instances }}"
+      register: ec2_output
+
+    # Optional: Debug output
+    - name: Show created EC2 instance details
+      debug:
+        var: ec2_output
