@@ -1,0 +1,6 @@
+- name: ping the server
+  hosts: keys
+  tasks: # list of tasks
+  - name: pin the server
+    ansible.builtin.ping:
+    
