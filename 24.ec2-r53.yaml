@@ -12,6 +12,7 @@
     sg_id: sg-010eb25d82d15b248
     image_id: ami-09c813fb71547fc4f
     instance_type: t3.micro
+    zone: daws84ss.site
    
   tasks:
     - name: Create EC2 instances
@@ -31,3 +32,15 @@
     - name: print ec2_output
       ansible.builtin.debug:
         msg: "{{ ec2_output }}"
+
+    - name: Create R53 records
+      amazon.aws.route53:
+        state: present
+        zone: "{{ zone }}"
+        record: "{{ item.item }}.{{ zone }}"
+        type: A
+        ttl: 1
+        value: "{{ item.instance[0].private_ip_address }}"
+        wait: true
+        overwrite: true
+      loop: "{{ ec2_output.results }}"  
